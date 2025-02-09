@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine?</title>
+    <link href="https://fonts.googleapis.com/css2?family=Arial&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url('https://unsplash.com/photos/red-flower--rkW0aKhOMA');
+            background-size: cover;
+            background-position: center;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+
+        .popup {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            position: relative;
+            z-index: 1000;
+            animation: fadeIn 1s ease-in;
+        }
+
+        .popup h1 {
+            color: #ff4b8d;
+            margin-bottom: 2rem;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .yes-btn {
+            background-color: #d92a6a;
+            color: white;
+        }
+
+        .yes-btn:hover {
+            transform: scale(1.1);
+            background-color: #9e1a51;
+        }
+
+        .no-btn {
+            background-color:  #d92a6a;
+            color: white;
+            position: relative;
+        }
+
+        .success-message {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            animation: fadeIn 1s ease-in;
+        }
+
+        .hearts-container {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: #ff4b8d;
+            transform: rotate(45deg);
+            animation: floatHeart 4s ease-in infinite;
+        }
+
+        .heart::before,
+        .heart::after {
+            content: '';
+            width: 20px;
+            height: 20px;
+            background: #ff4b8d;
+            border-radius: 50%;
+            position: absolute;
+        }
+
+        .heart::before {
+            left: -10px;
+        }
+
+        .heart::after {
+            top: -10px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes floatHeart {
+            0% {
+                transform: rotate(45deg) translateY(0) scale(0);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: rotate(45deg) translateY(-100vh) scale(1);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hearts-container"></div>
+    
+    <div class="popup" id="valentinePopup">
+        <h1>Will You Be My Valentine? 🌹</h1>
+        <div class="buttons">
+            <button class="btn yes-btn" onclick="acceptValentine()">Yes 💖</button>
+            <button class="btn no-btn" id="noBtn">No 💔</button>
+        </div>
+    </div>
+
+    <div class="success-message" id="successMessage">
+        <h2>Thank you so much for being my Valentine! 💝</h2>
+        <p>You've made me the happiest person! 🥰</p>
+    </div>
+
+    <script>
+        // Create floating hearts animation
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 2 + 3 + 's';
+            document.querySelector('.hearts-container').appendChild(heart);
+            
+            // Remove heart after animation
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+
+        // Create hearts periodically
+        setInterval(createHeart, 300);
+
+        // Handle the No button movement
+        const noBtn = document.getElementById('noBtn');
+        let moveCount = 0;
+
+        noBtn.addEventListener('mouseover', () => {
+            const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+            const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+            
+            noBtn.style.position = 'fixed';
+            noBtn.style.transition = 'all 0.5s ease';
+            noBtn.style.left = x + 'px';
+            noBtn.style.top = y + 'px';
+            
+            moveCount++;
+            if (moveCount > 5) {
+                noBtn.style.fontSize = Math.max(8, 20 - moveCount) + 'px';
+            }
+        });
+
+        // Handle the Yes button click
+        function acceptValentine() {
+            document.getElementById('valentinePopup').style.display = 'none';
+            document.getElementById('successMessage').style.display = 'block';
+            
+            // Create extra celebration hearts
+            for (let i = 0; i < 20; i++) {
+                setTimeout(createHeart, i * 100);
+            }
+        }
+    </script>
+</body>
+</html>

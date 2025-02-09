@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Love Letter</title>
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: #f5e6e6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 40px;
+            font-family: 'Patrick Hand', cursive;
+        }
+
+        .letter-container {
+            background: url('https://www.transparenttextures.com/patterns/old-paper.png'), #fff9f9;
+            padding: 60px;
+            max-width: 800px;
+            width: 90%;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            position: relative;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 1s ease forwards;
+        }
+
+        .letter-content {
+            line-height: 1.8;
+            color: #2c1810;
+            font-size: 24px;
+            letter-spacing: 1px;
+            word-spacing: 3px;
+        }
+
+        .letter-content p {
+            margin: 20px 0;
+            text-align: left;
+            white-space: pre-line;
+        }
+
+        .letter-content span {
+            opacity: 0;
+            display: inline-block;
+            animation: fadeInLetter 0.5s ease forwards;
+            padding: 0 1px;
+        }
+
+        .dear {
+            font-size: 36px;
+            color: #ff4d4d;
+            margin-bottom: 40px;
+        }
+
+        .promises {
+            margin: 40px 0;
+            padding-left: 20px;
+        }
+
+        .promise-item {
+            margin: 15px 0;
+            position: relative;
+            line-height: 1.5;
+            letter-spacing: 1px;
+            word-spacing: 3px;
+        }
+
+        .promise-item::before {
+            content: '♥';
+            color: #ff4d4d;
+            position: absolute;
+            left: -30px;
+            font-size: 20px;
+        }
+
+        .closing {
+            margin-top: 40px;
+            font-style: italic;
+            font-size: 24px;
+            color: #444;
+        }
+
+        .signature {
+            text-align: right;
+            margin-top: 50px;
+            font-size: 36px;
+            color: #ff4d4d;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #ff4d4d;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: #ff2a2a;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLetter {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .letter-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            box-shadow: inset 0 0 40px rgba(0,0,0,0.1);
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="letter-container">
+        <div class="letter-content" id="letter-text">
+            <div class="dear">My Dearest Love,</div>
+
+            <p>
+                As  I    write   this   letter  ,   my  heart    overflows  with    love     for     you. 
+                These    past   four    years    have   been     the     most   beautiful    chapter     of  my     life, 
+                all  because    of  you.    You     make    me  smile,  you     make    me  happy,  your  support     
+                makes   all     my   wishes  fulfilled,    you  are     joy     of     my   life,    without     you 
+                im   incomplete  in everthing,  YOU     COMEPLETE    ME,    In  last     four   years    we     went 
+                through     many    ups  and    downs,   rights     and     lefts,  and     many    more, 
+            we  faced   everthing   toghether,  Ik  im  not     at  all     perfect     for     you     still    you   were 
+            there   for  me  in     every   situation.  Without    you  i    would  never   comes   these   much
+             in  my     life    at  all,    You     are  my     insipration,     you    are     my  one     and     only 
+             well   wisher  in  these   dangerous   hell    world.
+                Without     you     im   nothing     at     all.     These  past    four     years   you    taught  me 
+                many     things,    being   around  you  makes   me     feel    the     happiest.
+            
+            </p>
+
+            <p>
+                Every    moment     spent    with   you  feels   like    a   blessing, 
+                and     I    cherish     each   smile,  each     laugh,     and     even     each
+                challenge   we've   faced    together.  You     make     me     smile, 
+                you     make   me    happy,     and     your  support   makes    all     my   wishes     come    true.
+            </p>
+
+            <div class="promises">
+                <p>I promise to:</p>
+                <div class="promise-item">Be your strength when you need support</div>
+                <div class="promise-item">Be your smile when you feel down</div>
+                <div class="promise-item">Be your comfort in times of stress</div>
+                <div class="promise-item">Be your biggest cheerleader in all your endeavors</div>
+                <div class="promise-item">Love you more with each passing day</div>
+                <div class="promise-item">Create countless beautiful memories together</div>
+                <div class="promise-item">Always choose you, every single day</div>
+            </div>
+
+            <p>
+                You  make    my     world   brighter     just    by     being   in   it. 
+                Your     love   is   the     greatest    gift   I    could   ever    ask     for. 
+                Without  you,   I   would   never    have   come    this     far     in  my     life.
+            </p>
+
+            <p class="closing">
+                Here's to us, to our love, and to many more beautiful years together.
+            </p>
+
+            <p>Forever and Always,</p>
+        </div>
+        <div class="signature">~Poulami ❤️</div>
+        <a href="valentine.html" class="button"> ---> </a>
+    </div>
+    <script>
+        function animateText() {
+            const elements = document.querySelectorAll('.letter-content p, .letter-content .dear, .letter-content .promise-item');
+            elements.forEach((element, index) => {
+                const text = element.textContent;
+                element.innerHTML = '';
+                
+                [...text].forEach((char, charIndex) => {
+                    const span = document.createElement('span');
+                    span.textContent = char;
+                    span.style.animationDelay = `${index * 0.3 + charIndex * 0.02}s`;
+                    element.appendChild(span);
+                });
+            });
+        }
+        
+        window.onload = animateText;
+    </script>
+</body>
+</html> 
